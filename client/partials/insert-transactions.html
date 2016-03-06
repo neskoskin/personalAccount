@@ -1,0 +1,34 @@
+<form>
+  <div class="col-md-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Insert Transaction
+        <a href="#/" class="btn btn-primary pull-right">Home</a>
+        <div class="clearfix"></div>
+      </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <label for="transaction-description">Description</label>
+          <input type="text" class="form-control" ng-model="credentials.description" id="transaction-description" placeholder="Description">
+        </div>
+        <div class="form-group">
+          <label for="transaction-amount">Amount</label>
+          <input type="number" class="form-control" ng-model="credentials.amount" id="transaction-amount" placeholder="Amount">
+        </div>
+        <div class="form-group">
+          <label for="type">Type</label>
+          <select class="form-control" name="type" ng-model="credentials.type">
+            <option value="income">
+              Income
+            </option>
+            <option value="spend">
+              Spend
+            </option>
+          </select>
+
+        </div>
+        <input type="submit" ng-click="saveTransaction(credentials)" class="btn btn-primary" value="SAVE">
+      </div>
+
+    </div>
+  </div>
+</form>

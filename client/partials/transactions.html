@@ -1,0 +1,82 @@
+<div>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">Insert Transaction
+          <div class="clearfix"></div>
+        </div>
+        <div class="panel-body">
+          <form>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="transaction-description">Description</label>
+                <input type="text" class="form-control" ng-model="credentials.description" id="transaction-description" placeholder="Description">
+              </div>
+              <div class="form-group">
+                <label for="transaction-amount">Amount</label>
+                <input type="number" class="form-control" ng-model="credentials.amount" id="transaction-amount" placeholder="Amount">
+              </div>
+              <div class="form-group">
+                <label for="type">Type</label>
+                <select class="form-control" name="type" ng-model="credentials.type">
+                  <option value="income">
+                    Income
+                  </option>
+                  <option value="spend">
+                    Spend
+                  </option>
+                  <option value="toEuros">
+                    Denars to Euros
+                  </option>
+                </select>
+
+              </div>
+              <div class="text-center">
+                <input type="submit" ng-click="saveTransaction(credentials)" class="btn btn-primary btn-block" value="SAVE">
+              </div>
+
+            </div>
+          </form>
+          <div class="col-md-7">
+            <table class="table table-stripped">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                  <th>Amount</th>
+                  <th>DELETE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="transaction in transactions">
+                  <td>{{transaction.date | date:'short'}}</td>
+                  <td>{{transaction.type}}</td>
+                  <td>{{transaction.description}}</td>
+                  <td>{{transaction.amount}}</td>
+                  <td>
+                    <a href="#" ng-click="deleteTransaction($index)" class="btn btn-danger">Delete</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-md-2">
+            <table class="table table-stripped">
+              <thead>
+                <tr>
+                  <th>EUR</th>
+                  <th>MKD</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="status in balance">
+                  <td>{{status.euros}}</td>
+                  <td>{{status.denars}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
